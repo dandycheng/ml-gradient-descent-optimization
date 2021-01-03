@@ -19,7 +19,7 @@ $$V_{dW}\rightarrow$$ Accumulated gradient for non-bias weights
 
 $$V_{dB}\rightarrow$$ Accumulated gradient for bias weights
 
-$$S_{dB}\rightarrow$$ ccumulated gradient for bias weights (RMSprop and Adam only)
+$$S_{dB}\rightarrow$$ Accumulated gradient for bias weights (RMSprop and Adam only)
 
 $$S_{dW}\rightarrow$$ Accumulated gradient for bias weights  (RMSprop and Adam only)
 
