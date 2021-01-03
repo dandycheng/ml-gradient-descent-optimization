@@ -128,7 +128,7 @@ Hyperparameters:
 
 With 100 epochs, the following results are produced:
 
-![none.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/none.png)
-![momentum.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/momentum.png)
-![rmsprop.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/rmsprop.png)
-![adam.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/adam.png)
+![none.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/none.png?raw=true)
+![momentum.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/momentum.pngraw=true)
+![rmsprop.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/rmsprop.pngraw=true)
+![adam.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/adam.pngraw=true)
