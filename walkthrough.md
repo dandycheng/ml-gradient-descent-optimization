@@ -1,0 +1,110 @@
+# Gradient Descent Optimization
+---
+### With gradient descent optimization, we can converge to the minima faster than the traditional gradient descent.
+
+We will be going through 3 gradient descent algorithms (With and without optimization):
+- Gradient Descent (GD)
+- Momentum
+- Root Mean Square propagation (RMSprop)
+- Adaptive Moment estimation (Adam)
+
+\\
+With a constant learning rate $\alpha$, the traditional gradient descent converges slowly due to the non-changing speed. In addition, the convergence path fluctuates frequently before eventually converging to a local/global minima. To reduce fluctuations, [**Exponential Weighted Moving Average (EWMA)**](https://en.wikipedia.org/wiki/Moving_average#Weighted_moving_average) was utilized to smoothen the fluctuations, allowing faster convergence by accumulating previous parameters.
+
+**Note that all parameters and hyperparameters are reset after running each optimization algorithm in order to observe their behaviour.**
+
+\\
+### Notations:
+$V_{dW}\rightarrow$ Accumulated gradient for non-bias weights
+
+$V_{dB}\rightarrow$ Accumulated gradient for bias weights
+
+$S_{dB}\rightarrow$ ccumulated gradient for bias weights (RMSprop and Adam only)
+
+$S_{dW}\rightarrow$ Accumulated gradient for bias weights  (RMSprop and Adam only)
+
+$W\rightarrow$ Parameter matrix
+
+$b\rightarrow$ Bias parameter vector
+
+$\beta_{n}\rightarrow$ $n$-th momentum
+
+$\epsilon \rightarrow$ An small arbitrary constant less than $1$
+
+\\
+The weight updates for the optimization algorithms are as follows, for current training batch $t$:
+
+\\
+**Momentum**
+
+Initialize $V_{dW} = 0, V_{dB} = 0$
+$$
+    V_{dW}=\beta_1 V_{dW}+(1-\beta_1)dW\\
+    V_{dB}=\beta_1 V_{dB}+(1-\beta_1)dB\\\\
+$$
+
+$$
+    W = W - \alpha V_{dW}\\
+    b = b - \alpha V_{dB}
+$$
+
+**RMSprop**
+
+Initialize $V_{dW} = 0, V_{dB} = 0$
+$$
+    S_{dW}=\beta_2 S_{dW}+(1-\beta_2)dW^2\\
+    S_{dB}=\beta_2 S_{dB}+(1-\beta_2)dB^2\\\\
+$$
+
+$$
+    W = W - \alpha \frac{dW}{\sqrt{V_{dW}} + \epsilon}\\
+    b = b - \alpha \frac{dB}{\sqrt{V_{dB}} + \epsilon}\\
+$$
+
+**Adam**
+
+Initialize $V_{dW} = 0, V_{dB} = 0,S_{dW} = 0, S_{dB} = 0$
+
+\
+Momentum portion:
+$$
+    V_{dW}=\beta_1 V_{dW}+(1-\beta_1)dW\\
+    V_{dB}=\beta_1 V_{dB}+(1-\beta_1)dB\\\\
+$$
+
+RMSprop portion:
+$$
+    S_{dW}=\beta_2 S_{dW}+(1-\beta_2)dW^2\\
+    S_{dB}=\beta_2 S_{dB}+(1-\beta_2)dB^2\\\\
+$$
+
+Bias correction:
+$$
+    V_{dW}^{corrected}=\frac{V_{dW}}{1 - \beta_{1}^{t}},
+    V_{dB}^{corrected}=\frac{V_{dB}}{1 - \beta_{1}^{t}}\\
+    S_{dW}^{corrected}=\frac{S_{dW}}{1 - \beta_{2}^{t}},
+    S_{dB}^{corrected}=\frac{S_{dB}}{1 - \beta_{2}^{t}}
+$$
+
+\\
+Weights update:
+$$
+    W = W - \alpha \frac{V_{dW}^{corrected}}{\sqrt{S_{dW}^{corrected}} + \epsilon}\\
+    b = b - \alpha \frac{V_{dB}^{corrected}}{\sqrt{S_{dB}^{corrected}} + \epsilon}\\
+$$
+
+An arbitrary constant $\epsilon$ seen in the formulae above, this is for numerical stability purposes, which prevents dividing by a small denominator.
+
+Hyperparameters:
+
+- Learning rate $\rightarrow 1e-3$
+- Learning rate decay $\rightarrow 0.9$
+- $\beta_1 \rightarrow 0.8$
+- $\beta_2 \rightarrow 0.5$
+
+With 100 epochs, the following results are produced:
+
+![none.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/none.png)
+![momentum.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/momentum.png)
+![rmsprop.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/rmsprop.png)
+![adam.png](https://github.com/dandycheng/ml-gradient-descent-optimization/blob/main/imgs/adam.png)
