@@ -8,12 +8,12 @@ We will be going through 3 gradient descent algorithms (With and without optimiz
 - Root Mean Square propagation (RMSprop)
 - Adaptive Moment estimation (Adam)
 
-\\
+
 With a constant learning rate $$\alpha$$, the traditional gradient descent converges slowly due to the non-changing speed. In addition, the convergence path fluctuates frequently before eventually converging to a local/global minima. To reduce fluctuations, [**Exponential Weighted Moving Average (EWMA)**](https://en.wikipedia.org/wiki/Moving_average#Weighted_moving_average) was utilized to smoothen the fluctuations, allowing faster convergence by accumulating previous parameters.
 
 **Note that all parameters and hyperparameters are reset after running each optimization algorithm in order to observe their behaviour.**
 
-\\
+
 ### Notations:
 $$V_{dW}\rightarrow$$ Accumulated gradient for non-bias weights
 
@@ -31,10 +31,10 @@ $$\beta_{n}\rightarrow$$ $$n$$-th momentum
 
 $$\epsilon \rightarrow$$ An small arbitrary constant less than $$1$$
 
-\\
+
 The weight updates for the optimization algorithms are as follows, for current training batch $$t$$:
 
-\\
+
 **Momentum**
 
 Initialize $$V_{dW} = 0, V_{dB} = 0$$
@@ -56,7 +56,7 @@ Initialize $$V_{dW} = 0, V_{dB} = 0$$
 
 **RMSprop**
 
-Initialize $V_{dW} = 0, V_{dB} = 0$
+Initialize $$V_{dW} = 0, V_{dB} = 0$$
 [math]
     S_{dW}=\beta_2 S_{dW}+(1-\beta_2)dW^2
 [/math]
@@ -80,13 +80,19 @@ Initialize $$V_{dW} = 0, V_{dB} = 0,S_{dW} = 0, S_{dB} = 0$$
 
 Momentum portion:
 [math]
-    V_{dW}=\beta_1 V_{dW}+(1-\beta_1)dW\\
+    V_{dW}=\beta_1 V_{dW}+(1-\beta_1)dW
+[/math]
+
+[math]
     V_{dB}=\beta_1 V_{dB}+(1-\beta_1)dB
 [/math]
 
 RMSprop portion:
 [math]
-    S_{dW}=\beta_2 S_{dW}+(1-\beta_2)dW^2\\
+    S_{dW}=\beta_2 S_{dW}+(1-\beta_2)dW^2
+[/math]
+
+[math]
     S_{dB}=\beta_2 S_{dB}+(1-\beta_2)dB^2
 [/math]
 
