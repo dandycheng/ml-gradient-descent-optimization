@@ -117,7 +117,7 @@ Weights update:
     b = b - \alpha \frac{V_{dB}^{corrected}}{\sqrt{S_{dB}^{corrected}} + \epsilon}
 [/math]
 
-An arbitrary constant $\epsilon$ seen in the formulae above, this is for numerical stability purposes, which prevents dividing by a small denominator.
+An arbitrary constant $$\epsilon$$ seen in the formulae above, this is for numerical stability purposes, which prevents dividing by a small denominator.
 
 Hyperparameters:
 
