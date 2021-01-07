@@ -29,7 +29,7 @@ $$b\rightarrow$$ Bias parameter vector
 
 $$\beta_{n}\rightarrow$$ $$n$$-th momentum
 
-$$\epsilon \rightarrow$$ An small arbitrary constant less than $$1$$
+$$\epsilon \rightarrow$$ A small arbitrary constant less than $$1$$
 
 
 The weight updates for the optimization algorithms are as follows, for current training batch $$t$$:
